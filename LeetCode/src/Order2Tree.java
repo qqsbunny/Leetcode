@@ -15,7 +15,7 @@ public class Order2Tree {
 
 	}
 	
-	
+//preorder and inorder to btree	
     public TreeNode buildTree1(int[] preorder, int[] inorder) {
     	int length=preorder.length;
     	if(length==0)return null;
@@ -29,12 +29,10 @@ public class Order2Tree {
     	System.arraycopy(inorder, index+1, in_right, 0, length-index-1);
     	t.left=buildTree1(pre_left, in_left);
     	t.right=buildTree1(pre_right, in_right);
-    			
-    	
-    	
     	return t;
       }
-    
+
+//inorder and postorder to btree    
     public TreeNode buildTree2(int[] inorder, int[] postorder) {
     	int length=postorder.length;
     	if(length==0)return null;
@@ -48,12 +46,10 @@ public class Order2Tree {
     	System.arraycopy(inorder, index+1, in_right, 0, length-index-1);
     	t.left=buildTree2( in_left,post_left);
     	t.right=buildTree2( in_right,post_right);
-    			
-    	
-    	
     	return t;    
     	}
-    public int getIndex(int[] x,int m){
+  
+	public int getIndex(int[] x,int m){
     	int i=0;
     	while(x[i]!=m){
     		i++;
