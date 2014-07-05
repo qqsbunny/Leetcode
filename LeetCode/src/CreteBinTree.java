@@ -57,4 +57,25 @@ public class CreteBinTree {
 		}
 		System.out.println();
 	}
+	public static void print_morris_inorder(TreeNode t){
+		TreeNode rightmost=null,cur=t;
+		while(cur!=null){
+			if(cur.left!=null){
+				rightmost=cur.left;
+				while(rightmost.right!=null&&rightmost.right!=cur)
+					rightmost=rightmost.right;
+				if(rightmost.right==null){
+					rightmost.right=cur;
+					cur=cur.left;
+				}else{
+					System.out.print(" "+cur.val);
+					cur=cur.right;
+					rightmost.right=null;
+				}
+			}else{
+				System.out.print(" "+cur.val);
+				cur=cur.right;
+			}
+		}
+	}
 }
